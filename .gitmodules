@@ -1,0 +1,18 @@
+[submodule "3part/vulkan"]
+	path = 3part/vulkan
+	url = https://github.com/KhronosGroup/Vulkan-Headers
+[submodule "3part/volk"]
+	path = 3part/volk
+	url = https://github.com/zeux/volk.git
+[submodule "3part/glm"]
+	path = 3part/glm
+	url = https://github.com/g-truc/glm
+[submodule "3part/spdlog"]
+	path = 3part/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "3part/glfw"]
+	path = 3part/glfw
+	url = https://github.com/glfw/glfw
+[submodule "3part/entt"]
+	path = 3part/entt
+	url = https://github.com/skypjack/entt.git
