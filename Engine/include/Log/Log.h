@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Common/Utils.h"
+#include "Common/Utils.h"
 
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/stdout_color_sinks.h>

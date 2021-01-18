@@ -1,6 +1,6 @@
-#include "Window.h"
+#include "Window/Window.h"
 
-#include "../Log/Log.h"
+#include "Log/Log.h"
 
 namespace Engine {
 

@@ -1,5 +1,5 @@
 #include "Engine.h"
-#include "../Log/Log.h"
+#include "Log/Log.h"
 namespace Engine {
 
 Engine::Engine() { mWindow = std::make_unique<Window>(); }

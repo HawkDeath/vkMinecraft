@@ -3,10 +3,7 @@
 #pragma warning(disable : 4996)
 #endif
 
-#include <chrono>
-#include <ctime>
-#include <iomanip>
-#include <sstream>
+#include <string>
 
 namespace Engine::Intern {
 std::string current_time_and_date();
