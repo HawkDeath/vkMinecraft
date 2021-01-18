@@ -1,8 +1,8 @@
-#include "Test.h"
-#include <spdlog/spdlog.h>
+#include "Game.h"
+#include <iostream>
 
-int main() {
-  spdlog::info("sum = {}", Test::sum(654, 15));
-  std::getchar();
+int main(int argc, char *argv[]) {
+  vkMinecraft::Game game;
+  game.run();
   return 0;
 }
