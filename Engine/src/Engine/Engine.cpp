@@ -2,12 +2,17 @@
 #include "Log/Log.h"
 namespace Engine {
 
-Engine::Engine() { mWindow = std::make_unique<Window>(); }
+Engine::Engine() : mWindow(nullptr) {}
 
 Engine::~Engine() {}
-void Engine::init() {
-  LOG("Engine init")
-  mWindow->init();
+bool Engine::initialize() {
+  bool result = true;
+  mWindow = std::make_unique<Window>();
+
+  if (!mWindow)
+    result = false;
+
+  return result;
 }
-void Engine::run() { glfwPollEvents(); }
+void Engine::run() { mWindow->update(); }
 } // namespace Engine

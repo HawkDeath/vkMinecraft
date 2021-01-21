@@ -11,7 +11,9 @@ namespace Engine {
 class InternLog {
 public:
   InternLog() {
+#ifdef _DEBUG || DEBUG
     try {
+#endif
       std::vector<spdlog::sink_ptr> outputs(2);
 
       auto console_sink =
@@ -22,9 +24,11 @@ public:
       outputs[1] = std::move(file_sink);
       logger = std::make_shared<spdlog::logger>("InternLogger", outputs.begin(),
                                                 outputs.end());
+#ifdef _DEBUG || DEBUG
     } catch (spdlog::spdlog_ex &e) {
       std::printf(e.what());
     }
+#endif
   }
   template <typename... Args> void info(Args &&... args) {
     logger->info(std::forward<Args>(args)...);
@@ -39,7 +43,7 @@ public:
   }
 
 private:
-  std::shared_ptr<spdlog::logger> logger;
+  std::shared_ptr<spdlog::logger> logger = nullptr;
 };
 
 } // namespace Engine
@@ -63,4 +67,3 @@ static Engine::InternLog mainLogger() {
   do {                                                                         \
     mainLogger().error(__VA_ARGS__);                                           \
   } while (0);
-

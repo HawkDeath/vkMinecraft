@@ -10,12 +10,9 @@ public:
   explicit Engine();
   ~Engine();
   
-  void init();
+  bool initialize();
 
   void run();
-
-  GLFWwindow *getWin() const { return mWindow->getWin();
-  }
 
 private:
   std::unique_ptr<Window> mWindow;

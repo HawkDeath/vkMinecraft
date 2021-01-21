@@ -1,18 +1,30 @@
 #pragma once
 
+#include <Input/Input.h>
+
 #include <GLFW/glfw3.h>
+#include <memory>
 
 namespace Engine {
 class Window {
-public:
-  explicit Window();
-  ~Window();
-  void init();
+  friend class Engine;
 
-  GLFWwindow *getWin() const { return mGlfwWindow; }
+public:
+  Window();
+  ~Window();
+
+  bool shouldClose() { return glfwWindowShouldClose(mGlfwWindow); }
+
+private:
+  void update() const;
+
+  // Input system
+  static void handleKeyCallback(GLFWwindow *window, int key, int scancode,
+                                int action, int mods);
 
 private:
   GLFWwindow *mGlfwWindow;
+  std::unique_ptr<Input> mInput;
 };
 
 } // namespace Engine

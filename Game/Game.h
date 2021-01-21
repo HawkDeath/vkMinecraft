@@ -18,6 +18,7 @@ private:
 
 private:
   bool mIsGameRunning;
+  std::unique_ptr<Engine::Engine> mEngine;
 };
 
 } // namespace vkMinecraft

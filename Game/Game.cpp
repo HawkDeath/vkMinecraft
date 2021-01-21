@@ -4,26 +4,26 @@
 
 namespace vkMinecraft {
 
-Game::Game() : mIsGameRunning(false) {}
+Game::Game() : mIsGameRunning(false), mEngine(nullptr) {}
 Game::~Game() {}
 
 void Game::run() {
   initialize();
   mIsGameRunning = true;
-  std::unique_ptr<Engine::Engine> mEngine = std::make_unique<Engine::Engine>();
-  mEngine->init();
-  WLOG("Warning test")
-  ELOG("Error test")
+  mEngine = std::make_unique<Engine::Engine>();
+  if (!mEngine->initialize()) {
+    ELOG("[Engine] Failed to initialize engine")
+    return;
+  }
+
+  initialize();
+
   while (mIsGameRunning) {
     mEngine->run();
-    int key = glfwGetKey(mEngine->getWin(), GLFW_KEY_ESCAPE);
-    if (key == GLFW_PRESS) {
-      mIsGameRunning = false;
-      LOG("Exit...")
-    }
+   
   }
   shutdown();
 }
-void Game::initialize() { LOG("Initialize") } // namespace vkMinecraft
-void Game::shutdown() { LOG("Shutdown") }
+void Game::initialize() { LOG("[Game] Initialize") } // namespace vkMinecraft
+void Game::shutdown() { LOG("[Game] Shutdown") }
 } // namespace vkMinecraft
